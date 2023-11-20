@@ -79,4 +79,26 @@ const questionModel = [
   }
 ]
 
-export default questionModel
+function getQuestions() {
+  var xhr = new XMLHttpRequest();
+  var method = "GET";
+  var url = "https://tndngrl4h1.execute-api.us-east-1.amazonaws.com/api/get/question";
+
+  // Set async to true, might need to change later
+  xhr.open(method, url, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+      if (xhr.status == 200) {
+        var responseData = JSON.parse(xhr.responseText);
+        console.log("Response:", responseData);
+      } else {
+        console.error("Error:", xhr.status, xhr.statusText);
+      }
+    }
+  };
+
+  xhr.send();
+}
+
+export {questionModel, getQuestions}

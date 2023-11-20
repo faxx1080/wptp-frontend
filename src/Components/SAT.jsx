@@ -2,12 +2,13 @@ import { useState } from 'react';
 import BottomNavbar from './BottomNavbar';
 import Question from './Question'
 import SectionHeader from './SectionHeader';
-import questionModel from '../questionModel';
+import { getQuestions, questionModel } from '../questionModel';
 import userAnswer from '../global';
 
 export default function SAT() {
     const [count, setCount] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
+    getQuestions();
     const question = questionModel[count];
 
     const nextQuestion = () => {
