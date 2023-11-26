@@ -82,10 +82,9 @@ const questionModel = [
 function getQuestions() {
   var xhr = new XMLHttpRequest();
   var method = "GET";
-  var url = "https://tndngrl4h1.execute-api.us-east-1.amazonaws.com/api/get/question";
 
   // Set async to true, might need to change later
-  xhr.open(method, url, true);
+  xhr.open(method, import.meta.env.VITE_BACKEND_API, true);
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState == XMLHttpRequest.DONE) {
