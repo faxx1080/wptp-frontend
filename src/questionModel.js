@@ -1,103 +1,50 @@
-const questionModel = [
-  {
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    prompt: 'Choose an option',
-    answerChoices: [
-      {
-        letter: 'a',
-        text: 'dummy answer a'
-      },
-      {
-        letter: 'b',
-        text: 'dummy answer b'
-      },
-      {
-        letter: 'c',
-        text: 'dummy answer c'
-      },
-      {
-        letter: 'd',
-        text: 'dummy answer d'
-      },
-      {
-        letter: 'e',
-        text: 'dummy answer e'
-      }
-    ]
-  },
-  {
-    content: 'Tenetur saepe, delectus fugit quas atque esse tempore quasi facilis consectetur aspernatur provident ut, expedita autem doloribus, molestias illo. Sequi mollitia autem voluptate placeat reiciendis vero fugit ratione assumenda inventore?',
-    prompt: 'Choose an option',
-    answerChoices: [
-      {
-        letter: 'a',
-        text: 'dummy answer a'
-      },
-      {
-        letter: 'b',
-        text: 'dummy answer b'
-      },
-      {
-        letter: 'c',
-        text: 'dummy answer c'
-      },
-      {
-        letter: 'd',
-        text: 'dummy answer d'
-      },
-      {
-        letter: 'e',
-        text: 'dummy answer e'
-      }
-    ]
-  },
-  {
-    content: 'Officia nemo esse quisquam hic libero accusantium quo impedit sint iusto eligendi nam ipsum tenetur, rerum est possimus maxime id eveniet commodi sunt. Quo voluptatibus obcaecati corporis labore deserunt nisi?',
-    prompt: 'Choose an option',
-    answerChoices: [
-      {
-        letter: 'a',
-        text: 'dummy answer a'
-      },
-      {
-        letter: 'b',
-        text: 'dummy answer b'
-      },
-      {
-        letter: 'c',
-        text: 'dummy answer c'
-      },
-      {
-        letter: 'd',
-        text: 'dummy answer d'
-      },
-      {
-        letter: 'e',
-        text: 'dummy answer e'
-      }
-    ]
-  }
-]
-
-function getQuestions() {
-  var xhr = new XMLHttpRequest();
-  var method = "GET";
-
-  // Set async to true, might need to change later
-  xhr.open(method, import.meta.env.VITE_BACKEND_API, true);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == XMLHttpRequest.DONE) {
-      if (xhr.status == 200) {
-        var responseData = JSON.parse(xhr.responseText);
-        console.log("Response:", responseData);
-      } else {
-        console.error("Error:", xhr.status, xhr.statusText);
-      }
-    }
-  };
-
-  xhr.send();
-}
-
-export {questionModel, getQuestions}
+// [
+//   {
+//      "choicebtext": "9/7",
+//      "correctanswerchoice": "A",
+//      "section": "Math",
+//      "categoriesgeometry": "NOT GEOMETRY",
+//      "questiontype": "Multiple choice",
+//      "categoriesalgebra": "Algebraic Manipulation",
+//      "difficulty": 2,
+//      "equations": "a/3b = 3/7",
+//      "choiceatext": "7/9",
+//      "choicectext": "3/21",
+//      "choicedtext": "7/3",
+//      "id": 4,
+//      "imagesolutionlink": "https://drive.google.com/open?id=1mHBiSbBi__TgvxH11Ejv6q_pYHYPOwHH",
+//      "questiontext": "Given the equation below, what is b/a?"
+//   },
+//   {
+//      "choicebtext": "1",
+//      "correctanswerchoice": "C",
+//      "section": "Math",
+//      "categoriesgeometry": "NOT GEOMETRY",
+//      "questiontype": "Multiple choice",
+//      "categoriesalgebra": "Solving for a Variable, Two-Step Equations",
+//      "difficulty": 1,
+//      "equations": "x + 5 = -2x + 7",
+//      "choiceatext": "-4",
+//      "choicectext": "2/3",
+//      "choicedtext": "-2/3",
+//      "id": 5,
+//      "imagesolutionlink": "https://drive.google.com/open?id=1Gb7I-8b6HTq_DHjy6JVTXuGAFa6MWFo-",
+//      "questiontext": "Based on the equation below, find x:"
+//   },
+//   {
+//      "choicebtext": "(0,3)",
+//      "correctanswerchoice": "B",
+//      "imagelink": "https://drive.google.com/open?id=1YhJMeWlw7luQz4igIy8OWFwLEoXQwfyz",
+//      "section": "Math",
+//      "categoriesgeometry": "NOT GEOMETRY",
+//      "questiontype": "Multiple choice",
+//      "categoriesalgebra": "Intercepts, Linear Equations, Understanding Equations",
+//      "difficulty": 1,
+//      "choiceatext": "(3,0)",
+//      "choicectext": "(-3,0)",
+//      "choicedtext": "(-1.5,0)",
+//      "id": 6,
+//      "imagesolutionlink": "https://drive.google.com/open?id=1nmW2U4RNHRvlGfKxCTa-_0jtAZiBBBww",
+//      "questiontext": "What is the y-intercept of the following graph?"
+//   }
+// ]

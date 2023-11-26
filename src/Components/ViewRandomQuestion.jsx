@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import BottomNavbar from './BottomNavbar';
 import Question from './Question'
-import { questionModel } from '../questionModel';
 import userAnswer from '../global';
 
 export default function ViewRandomQuestion() {
