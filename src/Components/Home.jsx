@@ -18,7 +18,7 @@ export default function Home() {
                 <Link to="/SAT">
                     <HomeButton hasImage={true} title="Start SAT" />
                 </Link>
-                <Link to="/ViewRandomQuestion">
+                <Link to="/SAT">
                     <HomeButton hasImage={true} title="View Random Question" />
                 </Link>
 

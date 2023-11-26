@@ -10,15 +10,15 @@ export default function SAT() {
     const [questionModel, setQuestionModel] = useState([]);
 
     const getQuestions = () => {
-        var xhr = new XMLHttpRequest();
-        var method = "GET";
+        let xhr = new XMLHttpRequest();
+        let method = "GET";
 
         // Set async to true, might need to change later
         xhr.open(method, import.meta.env.VITE_BACKEND_API, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {
-                    var responseData = JSON.parse(xhr.responseText);
+                    let responseData = JSON.parse(xhr.responseText);
                     console.log("Response:", responseData);
                     setQuestionModel(responseData)
                 } else {
@@ -32,8 +32,28 @@ export default function SAT() {
     const nextQuestion = () => {
         if (selectedOption !== null) {
             userAnswer[count] = selectedOption;
-            setCount((count) => count + 1);
-            setSelectedOption(null);
+
+            let xhr = new XMLHttpRequest();
+            let payload = {
+                "question_number": count + 1,
+                "choice": selectedOption,
+                "user": "testuser", // subject to change
+            };
+            let payloadString = JSON.stringify(payload);
+            xhr.open("POST", import.meta.env.VITE_POST_QUESTION, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Request was successful, handle the response here
+                    console.log("Response:", xhr.responseText);
+                    setCount((count) => count + 1);
+                    setSelectedOption(null);
+                } else if (xhr.readyState == 4) {
+                    // Request failed or encountered an error, handle the error here
+                    console.error("Error:", xhr.status, xhr.statusText);
+                }
+            };
+            xhr.send(payloadString);
         }
     }
 
