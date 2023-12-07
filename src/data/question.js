@@ -1,4 +1,4 @@
-export default sampleQuestion = [
+const sampleQuestions = [
    {
       "choicebtext": "9/7",
       "correctanswerchoice": "A",
@@ -48,3 +48,5 @@ export default sampleQuestion = [
       "questiontext": "What is the y-intercept of the following graph?"
    }
 ]
+
+export default sampleQuestions;

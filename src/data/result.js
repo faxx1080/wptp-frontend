@@ -1,4 +1,4 @@
-export default sampleAnswer = {
+const sampleResult = {
     "question_count": 5,
     "answers_submitted": 4,
     "correct_answers": 3,
@@ -50,3 +50,4 @@ export default sampleAnswer = {
         }
     ]
 }
+export default sampleResult;
