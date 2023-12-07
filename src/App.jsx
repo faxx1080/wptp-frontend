@@ -1,6 +1,6 @@
 import './assets/App.css';
 import { Route, Routes } from 'react-router-dom'
-import TopNavbar from './Components/TopNavbar'
+import TopNavbar from './Layouts/TopNavbar'
 import Home from './Pages/Home'
 import SAT from './Pages/SAT'
 import ViewRandomQuestion from './Pages/ViewRandomQuestion'

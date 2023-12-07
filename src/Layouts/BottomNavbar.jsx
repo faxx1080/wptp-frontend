@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import LinkButton from './LinkButton';
+import LinkButton from '../Components/LinkButton';
 
 export default function BottomNavbar({ prevClickFunc, nextClickFunc, renderHomeBtn }) {
     return (

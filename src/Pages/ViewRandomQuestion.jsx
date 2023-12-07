@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BottomNavbar from '../Components/BottomNavbar';
+import BottomNavbar from '../Layouts/BottomNavbar';
 import Question from '../Components/Question'
 import userAnswer from '../global';
 
