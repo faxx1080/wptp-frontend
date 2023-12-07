@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import BottomNavbar from './BottomNavbar';
-import Question from './Question'
-import SectionHeader from './SectionHeader';
+import BottomNavbar from '../Components/BottomNavbar';
+import Question from '../Components/Question'
+import SectionHeader from '../Components/SectionHeader';
 import userAnswer from '../global';
 
 export default function SAT() {
@@ -13,7 +13,7 @@ export default function SAT() {
         let xhr = new XMLHttpRequest();
         let method = "GET";
 
-        // Set async to true, might need to change later
+        // Set async to true, might need to change later.
         xhr.open(method, import.meta.env.VITE_BACKEND_API, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -26,6 +26,7 @@ export default function SAT() {
                 }
             }
         };
+        xhr.withCredentials = true;
         xhr.send();
     }
 
@@ -37,19 +38,19 @@ export default function SAT() {
             let payload = {
                 "question_number": count + 1,
                 "choice": selectedOption,
-                "user": "testuser", // subject to change
+                "user": "testuser", // subject to change.
             };
             let payloadString = JSON.stringify(payload);
             xhr.open("POST", import.meta.env.VITE_POST_QUESTION, true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Request was successful, handle the response here
+                    // Request was successful, handle the response here.
                     console.log("Response:", xhr.responseText);
                     setCount((count) => count + 1);
                     setSelectedOption(null);
                 } else if (xhr.readyState == 4) {
-                    // Request failed or encountered an error, handle the error here
+                    // Request failed or encountered an error, handle the error here.
                     console.error("Error:", xhr.status, xhr.statusText);
                 }
             };

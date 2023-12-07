@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import BottomNavbar from './BottomNavbar';
-import Question from './Question'
+import BottomNavbar from '../Components/BottomNavbar';
+import Question from '../Components/Question'
 import userAnswer from '../global';
 
 export default function ViewRandomQuestion() {

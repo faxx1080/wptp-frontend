@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import GenericImageButton from './GenericImageButton';
+import GenericImageButton from '../Components/GenericImageButton';
 import userAnswer from '../global'
 
 export default function Home() {
@@ -11,7 +11,9 @@ export default function Home() {
     return (
         <>
             <h2>Your Tests</h2>
-            <GenericImageButton hasImage={false} />
+            <Link to="/Result">
+                <GenericImageButton hasImage={true} title="SAT result" />
+            </Link>
             <br />
             <h2>Practice and Prepare</h2>
             <Container style={{ margin: '0px' }}>
@@ -21,7 +23,6 @@ export default function Home() {
                 <Link to="/SAT">
                     <GenericImageButton hasImage={true} title="View Random Question" />
                 </Link>
-
             </Container>
         </>
     )

@@ -1,0 +1,50 @@
+export default sampleQuestion = [
+   {
+      "choicebtext": "9/7",
+      "correctanswerchoice": "A",
+      "section": "Math",
+      "categoriesgeometry": "NOT GEOMETRY",
+      "questiontype": "Multiple choice",
+      "categoriesalgebra": "Algebraic Manipulation",
+      "difficulty": 2,
+      "equations": "a/3b = 3/7",
+      "choiceatext": "7/9",
+      "choicectext": "3/21",
+      "choicedtext": "7/3",
+      "id": 4,
+      "imagesolutionlink": "https://drive.google.com/open?id=1mHBiSbBi__TgvxH11Ejv6q_pYHYPOwHH",
+      "questiontext": "Given the equation below, what is b/a?"
+   },
+   {
+      "choicebtext": "1",
+      "correctanswerchoice": "C",
+      "section": "Math",
+      "categoriesgeometry": "NOT GEOMETRY",
+      "questiontype": "Multiple choice",
+      "categoriesalgebra": "Solving for a Variable, Two-Step Equations",
+      "difficulty": 1,
+      "equations": "x + 5 = -2x + 7",
+      "choiceatext": "-4",
+      "choicectext": "2/3",
+      "choicedtext": "-2/3",
+      "id": 5,
+      "imagesolutionlink": "https://drive.google.com/open?id=1Gb7I-8b6HTq_DHjy6JVTXuGAFa6MWFo-",
+      "questiontext": "Based on the equation below, find x:"
+   },
+   {
+      "choicebtext": "(0,3)",
+      "correctanswerchoice": "B",
+      "imagelink": "https://drive.google.com/open?id=1YhJMeWlw7luQz4igIy8OWFwLEoXQwfyz",
+      "section": "Math",
+      "categoriesgeometry": "NOT GEOMETRY",
+      "questiontype": "Multiple choice",
+      "categoriesalgebra": "Intercepts, Linear Equations, Understanding Equations",
+      "difficulty": 1,
+      "choiceatext": "(3,0)",
+      "choicectext": "(-3,0)",
+      "choicedtext": "(-1.5,0)",
+      "id": 6,
+      "imagesolutionlink": "https://drive.google.com/open?id=1nmW2U4RNHRvlGfKxCTa-_0jtAZiBBBww",
+      "questiontext": "What is the y-intercept of the following graph?"
+   }
+]
