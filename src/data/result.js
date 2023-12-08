@@ -50,4 +50,5 @@ const sampleResult = {
         }
     ]
 }
+
 export default sampleResult;
