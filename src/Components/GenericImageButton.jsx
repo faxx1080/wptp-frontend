@@ -16,4 +16,4 @@ export default function GenericImageButton({ clickFunc, imgSrc, title, text, has
             </Card.Body>
         </Card>
     )
-}  
+}

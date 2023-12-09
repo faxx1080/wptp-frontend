@@ -9,6 +9,7 @@ export default function SAT() {
     const [selectedOption, setSelectedOption] = useState(null);
     const [questionModel, setQuestionModel] = useState([]);
 
+    // Use effect?
     const getQuestions = () => {
         let xhr = new XMLHttpRequest();
         let method = "GET";
@@ -26,7 +27,6 @@ export default function SAT() {
                 }
             }
         };
-        xhr.withCredentials = true;
         xhr.send();
     }
 
