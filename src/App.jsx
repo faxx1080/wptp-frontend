@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <TopNavbar />
+      <div style={{ height: '64px' }}></div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/SAT" element={<SAT />} />

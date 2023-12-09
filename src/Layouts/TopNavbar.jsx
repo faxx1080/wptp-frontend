@@ -17,7 +17,7 @@ export default function TopNavbar() {
         textDecoration: 'none', // Remove the default underline
     }
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Toolbar>
                 <Link to="/" style={logoLink}>
                     <Typography variant="h6">
