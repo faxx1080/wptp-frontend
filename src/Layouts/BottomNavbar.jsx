@@ -1,22 +1,37 @@
+import React from 'react';
+import { AppBar, Toolbar, Typography, Button, Container, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function BottomNavbar({ prevClickFunc, nextClickFunc, renderHomeBtn }) {
-    // return (
-    //     <Navbar className="bg-body-tertiary fixed-bottom border-top border-1 border-secondary">
-    //         <Container className="justify-content-end">
-    //             <Row>
-    //                 {prevClickFunc && <Col>
-    //                     <Button variant="primary" >Back</Button>
-    //                 </Col>}
-    //                 {
-    //                     renderHomeBtn && nextClickFunc &&
-    //                     <Col><LinkButton path="/" text="Next" clickFunc={nextClickFunc} /></Col>
-    //                     ||
-    //                     nextClickFunc && <Col>
-    //                         <Button variant="primary" onClick={nextClickFunc}>Next</Button>
-    //                     </Col>
-    //                 }
-    //             </Row>
-    //         </Container>
-    //     </Navbar>
-    // );
+  return (
+    <AppBar position="fixed" color="default" style={{ top: 'auto', bottom: 0 }}>
+      <Toolbar>
+        <Container>
+          <Grid container style={{justifyContent:"flex-end"}}>
+            {prevClickFunc && (
+              <Grid item>
+                <Button variant="contained" color="primary" onClick={prevClickFunc}>
+                  Back
+                </Button>
+              </Grid>
+            )}
+            {renderHomeBtn && nextClickFunc && (
+              <Grid item>
+                <Button component={Link} to="/" variant="contained" color="primary">
+                  Next
+                </Button>
+              </Grid>
+            )}
+            {!renderHomeBtn && nextClickFunc && (
+              <Grid item>
+                <Button variant="contained" color="primary" onClick={nextClickFunc}>
+                  Next
+                </Button>
+              </Grid>
+            )}
+          </Grid>
+        </Container>
+      </Toolbar>
+    </AppBar>
+  );
 }
