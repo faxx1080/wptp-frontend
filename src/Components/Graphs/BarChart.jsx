@@ -82,3 +82,78 @@
 //         Plot.ruleX([0])
 //     ]
 // })
+
+import React, { useEffect, useRef } from 'react';
+import * as d3 from 'd3';
+import { arrayFromZero } from '../../Utils';
+
+const BarChart = ({ data, maxX }) => {
+    const svgRef = useRef();
+    // Set up the scaleslef
+    const margin = { top: 20, right: 20, bottom: 30, left: 100 };
+    const width = 400 - margin.left - margin.right;
+    // const height = 50 * data.length - margin.top - margin.bottom;
+    const height = 100 - margin.top - margin.bottom;
+
+
+    useEffect(() => {
+        // D3 code to create a horizontal bar chart
+        const svg = d3.select(svgRef.current);
+        const yScale = d3.scaleBand()
+            .domain(data.map(d => d.tag))
+            .range([0, height])
+            .padding(0.2);
+
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.frequency)])
+            .range([0, width]);
+
+        // Create and append two rectangles for each bar with different colors
+        svg.selectAll('g.bar')
+            .data(data)
+            .enter()
+            .append('g')
+            .attr('class', 'bar')
+            .attr('transform', d => `translate(${margin.left}, ${yScale(d.tag)})`)
+            .each(function (d) {
+                const total_width = xScale(d.frequency);
+                const correct_width = total_width * d.number_correct / d.frequency;
+                const wrong_width = total_width - correct_width;
+                console.log(total_width, correct_width, wrong_width )
+                d3.select(this).append('rect')
+                    .attr('height', yScale.bandwidth())
+                    .attr('width', correct_width)
+                    .attr('fill', 'blue');
+
+                d3.select(this).append('rect')
+                    .attr('height', yScale.bandwidth())
+                    .attr('width', wrong_width)
+                    .attr('transform', `translate(${correct_width}, 0)`)
+                    .attr('fill', 'red');
+            });
+
+        // Add axes
+        svg.append('g')
+            .attr('transform', `translate(${margin.left}, 0)`)
+            .call(d3.axisLeft(yScale));
+
+        svg.append('g')
+            .attr('transform', `translate(${margin.left}, ${height})`)
+            .call(d3.axisBottom(xScale).tickValues(arrayFromZero(maxX)).tickFormat(d3.format('d')));
+
+        // Add left axis label
+        svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', 0 - margin.left)
+            .attr('x', 0 - height / 2)
+            .attr('dy', '1em')
+            .style('text-anchor', 'middle')
+            .text('Labels on the Left');
+    }, [data, maxX]);
+
+    return (
+        <svg ref={svgRef} width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}></svg>
+    );
+};
+
+export default BarChart;
