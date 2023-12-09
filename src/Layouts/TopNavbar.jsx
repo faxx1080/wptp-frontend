@@ -1,16 +1,34 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+// import makeStyles from '@mui/styles';
+
+// const useStyles = makeStyles((theme) => ({
+//     logoLink: {
+//         color: 'inherit', // Use the inherit color (white) for the link
+//         textDecoration: 'none', // Remove the default underline
+//     },
+// }));
 
 export default function TopNavbar() {
+    // const classes = useStyles();
+    const logoLink = {
+        color: 'inherit', // Use the inherit color (white) for the link
+        textDecoration: 'none', // Remove the default underline
+    }
     return (
-        <Navbar className="bg-body-tertiary">
-            {/* <Container> */}
-            <Link to="/">
-                <Navbar.Brand>[Logo]WPTP</Navbar.Brand>
-            </Link>
-            {/* </Container> */}
-        </Navbar>
+        <AppBar position="static">
+            <Toolbar>
+                <Link to="/" style={logoLink}>
+                    <Typography variant="h6">
+                        [LOGO] WPTP
+                    </Typography>
+                </Link>
+                <Link to="/" style={logoLink}>
+                    <Button color="inherit">Home</Button>
+                </Link>
+            </Toolbar>
+        </AppBar>
     );
 }
 

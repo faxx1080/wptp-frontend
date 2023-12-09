@@ -1,9 +1,10 @@
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import GenericImageButton from '../Components/GenericImageButton';
+import { Container } from '@mui/material';
 import userAnswer from '../global'
 
 export default function Home() {
+    const imgSrc = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
     if (Object.entries(userAnswer).length !== 0) {
         console.log(userAnswer);
     }
@@ -11,17 +12,20 @@ export default function Home() {
     return (
         <>
             <h2>Your Tests</h2>
-            <Link to="/Result">
-                <GenericImageButton hasImage={true} title="SAT result" />
-            </Link>
+            <Container style={{marginLeft:"0"}}>
+                <Link to="/Result">
+                    <GenericImageButton hasImage={true} title="SAT result" imgSrc={imgSrc}/>
+                </Link>
+            </Container>
+
             <br />
             <h2>Practice and Prepare</h2>
             <Container style={{ margin: '0px' }}>
                 <Link to="/SAT">
-                    <GenericImageButton hasImage={true} title="Start SAT" />
+                    <GenericImageButton hasImage={true} title="Start SAT" imgSrc={imgSrc}/>
                 </Link>
                 <Link to="/SAT">
-                    <GenericImageButton hasImage={true} title="View Random Question" />
+                    <GenericImageButton hasImage={true} title="View Random Question" imgSrc={imgSrc}/>
                 </Link>
             </Container>
         </>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import { Button } from '@mui/material';
 
 export default function LinkButton({ path, text, clickFunc }) {
     return (

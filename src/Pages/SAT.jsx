@@ -14,8 +14,7 @@ export default function SAT() {
         let xhr = new XMLHttpRequest();
         let method = "GET";
 
-        // Set async to true, might need to change later.
-        xhr.open(method, import.meta.env.VITE_BACKEND_API, true);
+        xhr.open(method, import.meta.env.VITE_BACKEND_API, /** async= */ true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {
@@ -41,7 +40,7 @@ export default function SAT() {
                 "user": "testuser", // subject to change.
             };
             let payloadString = JSON.stringify(payload);
-            xhr.open("POST", import.meta.env.VITE_POST_QUESTION, true);
+            xhr.open("POST", import.meta.env.VITE_POST_QUESTION, /** async= */ true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {

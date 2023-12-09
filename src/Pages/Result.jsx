@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import Question from '../Components/Question'
 import sampleResult from '../Data/result.js'
-import LinePlot from '../Components/Graphs/LinePlot.jsx';
 import BarChart from '../Components/Graphs/BarChart.jsx';
 import { convertToBarChartArray } from '../Utils';
 
 export default function Result() {
-    const [count, setCount] = useState(0);
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [questionModel, setQuestionModel] = useState([]);
-
     function returnResult() {
         console.log(sampleResult);
         return sampleResult;
