@@ -92,8 +92,8 @@ const BarChart = ({ data, maxX }) => {
     // Set up the scaleslef
     const margin = { top: 20, right: 20, bottom: 30, left: 100 };
     const width = 400 - margin.left - margin.right;
-    // const height = 50 * data.length - margin.top - margin.bottom;
-    const height = 100 - margin.top - margin.bottom;
+    const height = 50 * data.length - margin.top - margin.bottom;
+    // const height = 100 - margin.top - margin.bottom;
 
 
     useEffect(() => {
@@ -117,19 +117,19 @@ const BarChart = ({ data, maxX }) => {
             .attr('transform', d => `translate(${margin.left}, ${yScale(d.tag)})`)
             .each(function (d) {
                 const total_width = xScale(d.frequency);
-                const correct_width = total_width * d.number_correct / d.frequency;
+                const correct_width = total_width / d.frequency * d.number_correct;
                 const wrong_width = total_width - correct_width;
-                console.log(total_width, correct_width, wrong_width )
-                d3.select(this).append('rect')
-                    .attr('height', yScale.bandwidth())
-                    .attr('width', correct_width)
-                    .attr('fill', 'blue');
 
                 d3.select(this).append('rect')
                     .attr('height', yScale.bandwidth())
                     .attr('width', wrong_width)
-                    .attr('transform', `translate(${correct_width}, 0)`)
                     .attr('fill', 'red');
+
+                d3.select(this).append('rect')
+                    .attr('height', yScale.bandwidth())
+                    .attr('width', correct_width)
+                    .attr('transform', `translate(${wrong_width}, 0)`)
+                    .attr('fill', 'green');
             });
 
         // Add axes
