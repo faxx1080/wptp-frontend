@@ -2,7 +2,7 @@ import { useState } from 'react';
 import BottomNavbar from '../Layouts/BottomNavbar';
 import Question from '../Components/Question'
 import userAnswer from '../global';
-import sampleQuestion from '../Data/question.js'
+import sampleQuestion from '../data/question.js';
 
 export default function ViewRandomQuestion() {
     const [count, setCount] = useState(0);

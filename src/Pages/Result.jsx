@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Question from '../Components/Question'
-import sampleResult from '../Data/result.js'
+import sampleResult from '../data/result.js';
 import BarChart from '../Components/Graphs/BarChart.jsx';
 import { convertToBarChartArray } from '../Utils';
 
