@@ -86,7 +86,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { arrayFromZero } from '../../Utils';
 
-const BarChart = ({ data, maxX }) => {
+const BarChart = ({ containerClass, data, maxX }) => {
     const svgRef = useRef();
     // Set up the scaleslef
     const margin = { top: 20, right: 20, bottom: 30, left: 100 };

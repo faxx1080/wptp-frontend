@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from '../Components/Question'
 import sampleResult from '../data/result.js';
 import BarChart from '../Components/Graphs/BarChart.jsx';
 import SimpleTable from '../Components/Table/SimpleTable.jsx';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
-import { convertToBarChartArray } from '../Utils';
+import { convertToBarChartArray, getMathData, getReadingAndWritingData } from '../Utils';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 // import SwipeableViews from 'react-swipeable-views';
 
@@ -20,6 +20,11 @@ export default function Result() {
         setValue(index);
     };
 
+    useEffect(() => {
+        // D3.js chart rendering code here
+
+    });
+
     const switchToTab = (index) => {
         switch (value) {
             case 0:
@@ -27,20 +32,32 @@ export default function Result() {
                     <>
                         <h2>Overview</h2>
                         <OverviewTable />
+                        <h2>Tags</h2>
+                        <div id="d3-container"></div>
                     </>
                 );
             case 1:
+                const readingAndWritingData = getReadingAndWritingData(sampleResult.breakdown);
+                console.log('read bar data', convertToBarChartArray(readingAndWritingData))
+
                 return (
                     <>
                         <h2>Reading & Writing Section Breakdown</h2>
-                        <QuestionDetailTable />
+                        <QuestionDetailTable data={readingAndWritingData} />
+                        <h2>Tags</h2>
+                        <div id="d3-container"></div>
+                        {/* <BarChart data={convertToBarChartArray(readingAndWritingData)} maxX={readingAndWritingData.length} /> */}
                     </>
                 );
             case 2:
+                const mathData = getMathData(sampleResult.breakdown);
                 return (
                     <>
                         <h2>Math Section Breakdown</h2>
-                        <QuestionDetailTable />
+                        <QuestionDetailTable data={getMathData(sampleResult.breakdown)} />
+                        <h2>Tags</h2>
+                        <div id="d3-container"></div>
+                        {/* <BarChart data={convertToBarChartArray(mathData)} maxX={mathData.length} /> */}
                     </>
                 );
             default:
@@ -50,13 +67,12 @@ export default function Result() {
 
     function returnResult() {
         console.log(sampleResult);
+        console.log('Reading&Writing data', getReadingAndWritingData(sampleResult.breakdown))
+        console.log('Math data', getMathData(sampleResult.breakdown))
+        console.log("Bar chart", convertToBarChartArray(sampleResult.breakdown));
         return sampleResult;
     }
-
     returnResult();
-
-    const data = convertToBarChartArray(sampleResult.breakdown);
-    console.log(data);
 
     return (
         <>
@@ -79,11 +95,10 @@ export default function Result() {
                     Item Three
                 </TabPanel>
             </SwipeableViews> */}
+            <BarChart data={convertToBarChartArray(sampleResult.breakdown)} maxX={sampleResult.breakdown.length} />
+
 
             {switchToTab(value)}
-
-            <h2>Tags</h2>
-            <BarChart data={data} maxX={sampleResult.question_count} />
         </>
     )
 }
