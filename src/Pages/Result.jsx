@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import sampleResult from '../data/result.js';
+import sampleTest from '../data/testOverview.js';
 import BarChart from '../Components/Graphs/BarChart.jsx';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
 import { convertToBarChartArray, getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils';
 import CenteredTabs from '../Components/CenterTabs.jsx';
+import { Container, Box, Typography } from '@mui/material';
 
 export default function Result() {
     const [value, setValue] = useState(0);
@@ -35,12 +37,21 @@ export default function Result() {
                 var maxFrequency = getMaxFrequency(barChartData)
 
                 return (
-                    <>
-                        <h2>Overview</h2>
+                    <Box>
+                        <Typography variant="h5" gutterBottom>
+                            Overview
+                        </Typography>
+                        <OverviewTable data={sampleTest} />
+
+                        <Typography variant="h5" gutterBottom>
+                            Question Details
+                        </Typography>
                         <QuestionDetailTable data={sampleResult.breakdown} />
-                        <h2>Tags</h2>
+                        <Typography variant="h5" gutterBottom>
+                            Tags Bar Chart
+                        </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
-                    </>
+                    </Box>
                 );
             case 1:
                 const readingAndWritingData = getReadingAndWritingData(sampleResult.breakdown);
@@ -48,12 +59,16 @@ export default function Result() {
                 var maxFrequency = getMaxFrequency(barChartData)
 
                 return (
-                    <>
-                        <h2>Reading & Writing Section Breakdown</h2>
+                    <Box>
+                        <Typography variant="h5" gutterBottom>
+                            Reading & Writing Section Breakdown
+                        </Typography>
                         <QuestionDetailTable data={readingAndWritingData} />
-                        <h2>Tags</h2>
+                        <Typography variant="h5" gutterBottom>
+                            Tags Bar Chart
+                        </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
-                    </>
+                    </Box>
                 );
             case 2:
                 var mathResult = getMathData(sampleResult.breakdown);
@@ -61,12 +76,16 @@ export default function Result() {
                 var maxFrequency = getMaxFrequency(barChartData)
 
                 return (
-                    <>
-                        <h2>Math Section Breakdown</h2>
+                    <Box>
+                        <Typography variant="h5" gutterBottom>
+                            Math Section Breakdown
+                        </Typography>
                         <QuestionDetailTable data={mathResult} />
-                        <h2>Tags</h2>
+                        <Typography variant="h5" gutterBottom>
+                            Tags Bar Chart
+                        </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
-                    </>
+                    </Box>
                 );
             default:
                 return <OverviewTable />;
