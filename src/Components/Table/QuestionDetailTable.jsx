@@ -14,9 +14,9 @@ export default function SimpleTable({ data }){
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row) => (
+                    {data.map((row, index) => (
                         <TableRow key={row.question_id}>
-                            <TableCell>{row.question_id}</TableCell>
+                            <TableCell>{index + 1}</TableCell>
                             <TableCell>{row.tag}</TableCell>
                             <TableCell>{row.correct_answer}</TableCell>
                             <TableCell>{row.submitted_answer || "unanswered"}</TableCell>

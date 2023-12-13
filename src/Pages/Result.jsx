@@ -76,7 +76,6 @@ export default function Result() {
 
     return (
         <>
-            <h2>Here are the result visualizations</h2>
             <CenteredTabs value={value} handleChange={handleChange} />
             {switchToTab(value)}
         </>
