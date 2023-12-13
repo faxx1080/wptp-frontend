@@ -1,5 +1,5 @@
 # WPTP-UI
-A UI mock for WPTP project
+The web UI for the WPTP project.
 
 ## How to run
 ```bash

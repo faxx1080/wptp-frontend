@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import BottomNavbar from '../Layouts/BottomNavbar';
 import Question from '../Components/Question'
-import SectionHeader from '../Components/SectionHeader';
+// import SectionHeader from '../Components/SectionHeader';
 import userAnswer from '../global';
 
 export default function SAT() {
@@ -70,7 +70,7 @@ export default function SAT() {
         return (
             <>
                 <h2>Welcome to the SAT page</h2>
-                <SectionHeader sectionNumber={1} title="Reading and writing" />
+                {/* <SectionHeader sectionNumber={1} title="Reading and writing" /> */}
                 <Question
                     number={count + 1}
                     questionData={question}
