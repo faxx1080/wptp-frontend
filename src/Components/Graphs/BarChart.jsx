@@ -91,13 +91,18 @@ const BarChart = ({ containerClass, data, maxX }) => {
     // Set up the scaleslef
     const margin = { top: 20, right: 20, bottom: 30, left: 100 };
     const width = 400 - margin.left - margin.right;
-    const height = 50 * data.length - margin.top - margin.bottom;
+    const initialHeight = 50;
+    const height = 50 * data.length - margin.top - margin.bottom + initialHeight;
+
+    console.log(data, maxX)
     // const height = 100 - margin.top - margin.bottom;
 
 
     useEffect(() => {
         // D3 code to create a horizontal bar chart
         const svg = d3.select(svgRef.current);
+        svg.selectAll('*').remove();
+
         const yScale = d3.scaleBand()
             .domain(data.map(d => d.tag))
             .range([0, height])
@@ -138,7 +143,7 @@ const BarChart = ({ containerClass, data, maxX }) => {
 
         svg.append('g')
             .attr('transform', `translate(${margin.left}, ${height})`)
-            .call(d3.axisBottom(xScale).tickValues(arrayFromZero(maxX)).tickFormat(d3.format('d')));
+            .call(d3.axisBottom(xScale).tickValues(arrayFromZero(maxX + 1)).tickFormat(d3.format('d')));
 
         // Add left axis label
         svg.append('text')

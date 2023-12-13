@@ -12,8 +12,10 @@ function convertToBarChartArray(data) {
     return resultArray;
 }
 
-function arrayFromZero(num) {
-    return Array.from(Array(num).keys());
+function getMaxFrequency(data) {
+    return data.reduce((max, current) => {
+        return current.frequency > max ? current.frequency : max;
+    }, 0);
 }
 
 function getMathData(data) {
@@ -26,4 +28,8 @@ function getReadingAndWritingData(data) {
     return readingResult;
 }
 
-export { convertToBarChartArray, arrayFromZero, getMathData, getReadingAndWritingData };
+function arrayFromZero(num) {
+    return Array.from(Array(num).keys());
+}
+
+export { convertToBarChartArray, arrayFromZero, getMathData, getReadingAndWritingData, getMaxFrequency };

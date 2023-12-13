@@ -5,7 +5,7 @@ import BarChart from '../Components/Graphs/BarChart.jsx';
 import SimpleTable from '../Components/Table/SimpleTable.jsx';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
-import { convertToBarChartArray, getMathData, getReadingAndWritingData } from '../Utils';
+import { convertToBarChartArray, getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 // import SwipeableViews from 'react-swipeable-views';
 
@@ -26,19 +26,28 @@ export default function Result() {
     });
 
     const switchToTab = (index) => {
+
         switch (value) {
             case 0:
+                var barChartData = convertToBarChartArray(sampleResult.breakdown)
+                var maxFrequency = getMaxFrequency(barChartData)
+
                 return (
                     <>
                         <h2>Overview</h2>
                         <OverviewTable />
                         <h2>Tags</h2>
                         <div id="d3-container"></div>
+                        <BarChart data={barChartData} maxX={maxFrequency} />
+
                     </>
                 );
             case 1:
                 const readingAndWritingData = getReadingAndWritingData(sampleResult.breakdown);
-                console.log('read bar data', convertToBarChartArray(readingAndWritingData))
+                var barChartData = convertToBarChartArray(readingAndWritingData)
+                var maxFrequency = getMaxFrequency(barChartData)
+
+                // console.log('read bar data', convertToBarChartArray(readingAndWritingData))
 
                 return (
                     <>
@@ -46,18 +55,22 @@ export default function Result() {
                         <QuestionDetailTable data={readingAndWritingData} />
                         <h2>Tags</h2>
                         <div id="d3-container"></div>
-                        {/* <BarChart data={convertToBarChartArray(readingAndWritingData)} maxX={readingAndWritingData.length} /> */}
+                        <BarChart data={barChartData} maxX={maxFrequency} />
                     </>
                 );
             case 2:
-                const mathData = getMathData(sampleResult.breakdown);
+                var mathResult = getMathData(sampleResult.breakdown);
+                var barChartData = convertToBarChartArray(mathResult)
+                console.log(barChartData)
+                var maxFrequency = getMaxFrequency(barChartData)
+
                 return (
                     <>
                         <h2>Math Section Breakdown</h2>
-                        <QuestionDetailTable data={getMathData(sampleResult.breakdown)} />
+                        <QuestionDetailTable data={mathResult} />
                         <h2>Tags</h2>
                         <div id="d3-container"></div>
-                        {/* <BarChart data={convertToBarChartArray(mathData)} maxX={mathData.length} /> */}
+                        <BarChart data={barChartData} maxX={maxFrequency} />
                     </>
                 );
             default:
@@ -66,10 +79,10 @@ export default function Result() {
     }
 
     function returnResult() {
-        console.log(sampleResult);
-        console.log('Reading&Writing data', getReadingAndWritingData(sampleResult.breakdown))
-        console.log('Math data', getMathData(sampleResult.breakdown))
-        console.log("Bar chart", convertToBarChartArray(sampleResult.breakdown));
+        // console.log(sampleResult);
+        // console.log('Reading&Writing data', getReadingAndWritingData(sampleResult.breakdown))
+        // console.log('Math data', getMathData(sampleResult.breakdown))
+        // console.log("Bar chart", convertToBarChartArray(sampleResult.breakdown));
         return sampleResult;
     }
     returnResult();
@@ -95,7 +108,7 @@ export default function Result() {
                     Item Three
                 </TabPanel>
             </SwipeableViews> */}
-            <BarChart data={convertToBarChartArray(sampleResult.breakdown)} maxX={sampleResult.breakdown.length} />
+            {/* <BarChart data={convertToBarChartArray(sampleResult.breakdown)} maxX={sampleResult.breakdown.length} /> */}
 
 
             {switchToTab(value)}
