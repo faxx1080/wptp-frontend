@@ -17,7 +17,7 @@ export default function BottomNavbar({ prevClickFunc, nextClickFunc, renderHomeB
             )}
             {renderHomeBtn && nextClickFunc && (
               <Grid item>
-                <Button component={Link} to="/" variant="contained" color="primary">
+                <Button component={Link} to="/" onClick={nextClickFunc} variant="contained" color="primary">
                   Next
                 </Button>
               </Grid>

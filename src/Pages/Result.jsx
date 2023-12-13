@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Question from '../Components/Question'
 import sampleResult from '../data/result.js';
 import BarChart from '../Components/Graphs/BarChart.jsx';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';

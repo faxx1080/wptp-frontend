@@ -1,35 +1,37 @@
+import { Container, Paper, Typography, Radio, RadioGroup, FormControlLabel } from '@mui/material';
+
 export default function Question({ number, questionData, selectedOption, onOptionChange }) {
-    const handleOptionChange = (choice) => {
+    const handleOptionChange = (event, choice) => {
         console.log(choice);
         onOptionChange(choice);
     };
     const answerChoices = ["A", "B", "C", "D", "E"]
 
     return (
-        <>
-            <h4>Question {number}:</h4>
-            <div>{"This is meant to be a context for the question. But this is not from the text API yet."}</div>
-            {questionData.imgLink && <img src={questionData.imgLink} />}
-            <br />
-            <div>{questionData.questiontext}</div>
-            {
-                answerChoices.map(choice =>
-                    (questionData[`choice${choice.toLowerCase()}text`]?.length)
-                    && (
-                        <div key={choice} className="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3">
-                            <label className="options">
-                                {questionData[`choice${choice.toLowerCase()}text`]}
-                                <input
-                                    type="radio"
-                                    name="radio"
-                                    checked={selectedOption === choice}
-                                    onChange={() => handleOptionChange(choice)}
+        <Container maxWidth="sm" style={{ marginTop: '50px' }}>
+            <Paper style={{ padding: '20px' }} elevation={3}>
+                <Typography variant="h5" gutterBottom>
+                    Question {number}:
+                </Typography>
+                {/* <div>{"This is meant to be a context for the question. But this is not from the text API yet."}</div> */}
+                {questionData.imgLink && <img src={questionData.imgLink} />}
+                <br />
+                <div>{questionData.questiontext}</div>
+                <RadioGroup value={selectedOption} onChange={handleOptionChange}>
+                    {
+                        answerChoices.map(choice =>
+                            (questionData[`choice${choice.toLowerCase()}text`]?.length)
+                            && (
+                                <FormControlLabel
+                                    key={choice}
+                                    value={choice}
+                                    control={<Radio color="default" />}
+                                    label={questionData[`choice${choice.toLowerCase()}text`]}
                                 />
-                                <span className="checkmark">{choice}</span>
-                            </label>
-                        </div>
-                    ))
-            }
-        </>
+                            ))
+                    }
+                </RadioGroup>
+            </Paper>
+        </Container>
     )
 }
