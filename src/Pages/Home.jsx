@@ -5,9 +5,9 @@ import userAnswer from '../global'
 
 export default function Home() {
     const imgSrc = "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-    // if (Object.entries(userAnswer).length !== 0) {
-    //     console.log(userAnswer);
-    // }
+    if (Object.entries(userAnswer).length !== 0) {
+        console.log(userAnswer);
+    }
 
     return (
         <>

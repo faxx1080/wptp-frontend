@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BottomNavbar from '../Layouts/BottomNavbar';
 import Question from '../Components/Question'
 import SectionHeader from '../Components/SectionHeader';
@@ -10,7 +10,8 @@ export default function SAT() {
     const [questionModel, setQuestionModel] = useState([]);
 
     // Use effect?
-    const getQuestions = () => {
+    useEffect(() => {
+        console.log("Fetching questions from the backend...")
         let xhr = new XMLHttpRequest();
         let method = "GET";
 
@@ -27,7 +28,7 @@ export default function SAT() {
             }
         };
         xhr.send();
-    }
+    }, []);
 
     const nextQuestion = () => {
         if (selectedOption !== null) {
@@ -58,7 +59,6 @@ export default function SAT() {
     }
 
     if (!questionModel.length) {
-        getQuestions();
         return (
             <>
                 <h2>Welcome to the SAT page</h2>

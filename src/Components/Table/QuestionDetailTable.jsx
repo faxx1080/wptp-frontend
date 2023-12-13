@@ -7,10 +7,10 @@ export default function SimpleTable({ data }){
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Number</TableCell>
-                        <TableCell>Tag</TableCell>
-                        <TableCell>Correct Answer</TableCell>
-                        <TableCell>Your Answer</TableCell>
+                        <TableCell><b>Number</b></TableCell>
+                        <TableCell><b>Tag</b></TableCell>
+                        <TableCell><b>Correct Answer</b></TableCell>
+                        <TableCell><b>Your Answer</b></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
