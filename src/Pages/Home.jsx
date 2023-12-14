@@ -13,7 +13,7 @@ export default function Home() {
         <>
             <h2>Your Tests</h2>
             <Container style={{marginLeft:"0"}}>
-                <Link to="/Result">
+                <Link to="/TestResult">
                     <GenericImageButton hasImage={true} title="SAT result" imgSrc={imgSrc} text="See scores breakdown" />
                 </Link>
             </Container>

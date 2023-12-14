@@ -2,6 +2,8 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 export default function OverviewTable({ data }) {
+  const total = data.reading + data.writing + data.math;
+
   return (
     <TableContainer component={Paper} elevation={4}>
       <Table>
@@ -37,16 +39,12 @@ export default function OverviewTable({ data }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((test) => {
-            const total = test.reading + test.writing + test.math;
-            return (<TableRow key={test.id}>
-              <TableCell>{test.reading}</TableCell>
-              <TableCell>{test.writing}</TableCell>
-              <TableCell>{test.math}</TableCell>
-              <TableCell>{total}</TableCell>
-            </TableRow>
-            )
-          })}
+          <TableRow key={data.id}>
+            <TableCell>{data.reading}</TableCell>
+            <TableCell>{data.writing}</TableCell>
+            <TableCell>{data.math}</TableCell>
+            <TableCell>{total}</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>

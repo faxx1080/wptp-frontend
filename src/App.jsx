@@ -4,7 +4,8 @@ import TopNavbar from './Layouts/TopNavbar'
 import Home from './Pages/Home'
 import SAT from './Pages/SAT'
 import ViewRandomQuestion from './Pages/ViewRandomQuestion'
-import Result from './Pages/Result'
+import TestResult from './Pages/TestResult'
+import TestResultDetail from './Pages/TestResultDetail'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/SAT" element={<SAT />} />
         <Route path="/ViewRandomQuestion" element={<ViewRandomQuestion />} />
-        <Route path="/Result" element={<Result />} />
+        <Route path="/TestResult/:id" element={<TestResultDetail />} />
+        <Route path="/TestResult" element={<TestResult />} />
       </Routes>
       <div style={{ height: '16px' }}></div>
     </div>

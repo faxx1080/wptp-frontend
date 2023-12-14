@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import sampleResult from '../data/result.js';
-import sampleTest from '../data/testOverview.js';
-import BarChart from '../Components/Graphs/BarChart.jsx';
+import sampleTest from '../data/test.js';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
-import { convertToBarChartArray, getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils';
+import { getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils.js';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 import { Container, Box, Typography } from '@mui/material';
 import TagPerformace from '../Components/TagPerformance.jsx';
+import { useParams } from 'react-router-dom';
+import LinkButton from '../Components/LinkButton.jsx';
 
-export default function Result() {
+export default function TestResultDetail() {
+    const { id } = useParams();
+
     const [value, setValue] = useState(0);
     useEffect(() => {
         returnResult();
@@ -17,9 +20,8 @@ export default function Result() {
 
     function returnResult() {
         console.log(sampleResult);
-        console.log('Reading&Writing data', getReadingAndWritingData(sampleResult.breakdown))
-        console.log('Math data', getMathData(sampleResult.breakdown))
-        console.log("Bar chart", convertToBarChartArray(sampleResult.breakdown));
+        // console.log('Reading&Writing data', getReadingAndWritingData(sampleResult.breakdown))
+        // console.log('Math data', getMathData(sampleResult.breakdown))
         return sampleResult;
     }
 
@@ -39,7 +41,7 @@ export default function Result() {
                         <Typography variant="h5" gutterBottom>
                             Overview
                         </Typography>
-                        <OverviewTable data={sampleTest} />
+                        <OverviewTable data={sampleTest[id-1]} />
 
                         <Typography variant="h5" gutterBottom>
                             Question Details
@@ -80,6 +82,7 @@ export default function Result() {
 
     return (
         <>
+            <LinkButton path="/TestResult" text="Back" />
             <CenteredTabs value={value} handleChange={handleChange} />
             {switchToTab(value)}
         </>
