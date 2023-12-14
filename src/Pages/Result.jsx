@@ -48,7 +48,7 @@ export default function Result() {
                         </Typography>
                         <QuestionDetailTable data={sampleResult.breakdown} />
                         <Typography variant="h5" gutterBottom>
-                            Tags Bar Chart
+                            Performance by Tags
                         </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
                     </Box>
@@ -65,7 +65,7 @@ export default function Result() {
                         </Typography>
                         <QuestionDetailTable data={readingAndWritingData} />
                         <Typography variant="h5" gutterBottom>
-                            Tags Bar Chart
+                            Performance by Tags
                         </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
                     </Box>
@@ -82,7 +82,7 @@ export default function Result() {
                         </Typography>
                         <QuestionDetailTable data={mathResult} />
                         <Typography variant="h5" gutterBottom>
-                            Tags Bar Chart
+                            Performance by Tags
                         </Typography>
                         <BarChart data={barChartData} maxX={maxFrequency} />
                     </Box>

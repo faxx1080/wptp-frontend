@@ -4,13 +4,10 @@ import { arrayFromZero } from '../../Utils';
 
 const BarChart = ({ data, maxX }) => {
     const svgRef = useRef();
-    // Set up the scaleslef
-    const margin = { top: 20, right: 20, bottom: 30, left: 100 };
+    const margin = { top: 20, right: 20, bottom: 60, left: 70 };
     const width = 400 - margin.left - margin.right;
-    const initialHeight = 50;
-    // const legendHeight = 50;
-    const height = 50 * data.length - margin.top - margin.bottom + initialHeight;
-    // const height = 500;
+    const initialHeight = 80;
+    const height = 35 * data.length - margin.top - margin.bottom + initialHeight;
 
     useEffect(() => {
         // D3 code to create a horizontal bar chart
@@ -22,6 +19,7 @@ const BarChart = ({ data, maxX }) => {
             .range([0, height])
             .padding(0.2);
 
+        // To provide padding for the x-axis, think about change xScale not taking up the whole width
         const xScale = d3.scaleLinear()
             .domain([0, d3.max(data, d => d.frequency)])
             .range([0, width]);
@@ -66,31 +64,46 @@ const BarChart = ({ data, maxX }) => {
             .style('text-anchor', 'middle')
             .text('Number of Questions');
 
-        // // Add legend
-        // const legend = svg.append('g')
-        //     .attr('transform', `translate(${width - margin.left +150}, ${margin.top})`);
-        // const legendRectSize = 18;
-        // const legendSpacing = 4;
+        // Add legend
+        const legend = svg.append('g')
+            .attr('x', width / 2 + margin.left) // Centered at the bottom
+            .attr('transform', `translate(${width}, ${height + margin.top + 5})`)
 
-        // const legendItems = ['Correct', 'Incorrect']; // Change order for correct legend
+        const legendRectSize = 18;
+        const legendSpacing = 4;
 
-        // legend.selectAll('rect')
-        //     .data(legendItems)
-        //     .enter()
-        //     .append('rect')
-        //     .attr('width', legendRectSize)
-        //     .attr('height', legendRectSize)
-        //     .attr('y', (d, i) => i * (legendRectSize + legendSpacing))
-        //     .attr('fill', (d, i) => (i === 0) ? 'green' : 'red'); // Adjust colors accordingly
+        const legendItems = ['Correct', 'Incorrect']; // Change order for correct legend
 
-        // legend.selectAll('text')
-        //     .data(legendItems)
-        //     .enter()
-        //     .append('text')
-        //     .attr('x', legendRectSize + legendSpacing)
-        //     .attr('y', (d, i) => i * (legendRectSize + legendSpacing) + legendRectSize / 2)
-        //     .attr('dy', '0.35em')
-        //     .text(d => d);
+        legend.selectAll('rect')
+            .data(legendItems)
+            .enter()
+            .append('rect')
+            .attr('width', legendRectSize)
+            .attr('height', legendRectSize)
+            .attr('y', (d, i) => i * (legendRectSize + legendSpacing))
+            .attr('fill', (d, i) => (i === 0) ? 'green' : 'red'); // Adjust colors accordingly
+
+        legend.selectAll('text')
+            .data(legendItems)
+            .enter()
+            .append('text')
+            .attr('x', legendRectSize + legendSpacing)
+            .attr('y', (d, i) => i * (legendRectSize + legendSpacing) + legendRectSize / 2)
+            .attr('dy', '0.35em')
+            .text(d => d);
+
+        const legendPadding = 3;
+        const legendRectWidth = legendRectSize + legendSpacing + 65;
+        const legendRectHeight = legendItems.length * (legendRectSize + legendSpacing) + legendSpacing;
+        const legendStrokeWidth = 2;   // Set the border width
+        legend.append('rect')
+            .attr('x', 0 - legendPadding)
+            .attr('y', 0 - legendPadding)
+            .attr('width', legendRectWidth)
+            .attr('height', legendRectHeight)
+            .attr('fill', 'none')
+            .attr('stroke', 'black')
+            .attr('stroke-width', legendStrokeWidth);
     }, [data, maxX]);
 
     return (
