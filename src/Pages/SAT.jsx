@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import BottomNavbar from '../Layouts/BottomNavbar';
 import Question from '../Components/Question'
 // import SectionHeader from '../Components/SectionHeader';
-import userAnswer from '../global';
 
 export default function SAT() {
     const [count, setCount] = useState(0);
