@@ -53,7 +53,9 @@ export default function SummarySynopsisTable() {
                         })
                     }
                     <TableRow>
-                        <TableCell>Super Score: </TableCell>
+                        <TableCell>
+                            <Typography variant="h6">Super Score:</Typography>
+                        </TableCell>
                         <TableCell>{EBRWMax}</TableCell>
                         <TableCell>{mathMax}</TableCell>
                         <TableCell>{EBRWMax + mathMax}</TableCell>

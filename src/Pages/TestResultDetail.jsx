@@ -3,7 +3,7 @@ import sampleResult from '../data/result.js';
 import sampleTest from '../data/test.js';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
-import { getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils.js';
+import { getMathData, getReadingAndWritingData } from '../Utils.js';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 import { Container, Box, Typography } from '@mui/material';
 import TagPerformace from '../Components/TagPerformance.jsx';
@@ -41,13 +41,13 @@ export default function TestResultDetail() {
                         <Typography variant="h5" gutterBottom>
                             Overview
                         </Typography>
-                        <OverviewTable data={sampleTest[id-1]} />
+                        <OverviewTable data={sampleTest[id - 1]} />
 
                         <Typography variant="h5" gutterBottom>
                             Question Details
                         </Typography>
                         <QuestionDetailTable data={sampleResult.breakdown} />
-                        <TagPerformace data={sampleResult.breakdown}/>
+                        <TagPerformace data={sampleResult.breakdown} />
                     </Container>
                 );
             case 1:
@@ -59,8 +59,8 @@ export default function TestResultDetail() {
                             Reading & Writing Section Breakdown
                         </Typography>
                         <QuestionDetailTable data={readingAndWritingData} />
-                        
-                        <TagPerformace data={readingAndWritingData}/>
+
+                        <TagPerformace data={readingAndWritingData} />
                     </Container>
                 );
             case 2:
@@ -72,7 +72,7 @@ export default function TestResultDetail() {
                             Math Section Breakdown
                         </Typography>
                         <QuestionDetailTable data={mathData} />
-                        <TagPerformace data={mathData}/>
+                        <TagPerformace data={mathData} />
                     </Container>
                 );
             default:
