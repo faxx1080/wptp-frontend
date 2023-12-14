@@ -14,6 +14,13 @@ const sampleTest = [
         "writing": 390,
         "math": 690,
     },
+    {
+        "id": 3,
+        "date": new Date(2023, 11, 1),
+        "reading": 320,
+        "writing": 350,
+        "math": 780,
+    },
 ]
 
 export default sampleTest;

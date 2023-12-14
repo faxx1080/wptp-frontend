@@ -27,14 +27,24 @@ function sortBarChartDataByScorePercentage(barChartData) {
 }
 
 function sortBarChartDataByFrequency(barChartData) {
-    return barChartData.sort((a, b) =>
-        a.frequency - b.frequency);
+    return barChartData.sort((a, b) => a.frequency - b.frequency);
 }
 
 function getMaxFrequency(barChartData) {
     return barChartData.reduce((max, current) => {
         return current.frequency > max ? current.frequency : max;
     }, 0);
+}
+
+function getSuperScores(testData) {
+    const EBRWMax = testData.reduce((max, current) =>
+        current.reading + current.writing > max ? current.reading + current.writing : max
+        , 0);
+    const mathMax = testData.reduce((max, current) =>
+        current.math > max ? current.math : max
+        , 0);
+
+    return { EBRWMax, mathMax };
 }
 
 function getMathData(data) {
@@ -58,4 +68,5 @@ export {
     getReadingAndWritingData,
     getMaxFrequency,
     getTagBarChartAnalysisData,
+    getSuperScores,
 };

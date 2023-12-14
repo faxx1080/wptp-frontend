@@ -8,9 +8,18 @@ import CenteredTabs from '../Components/CenterTabs.jsx';
 import { Container, Box, Typography } from '@mui/material';
 import TagPerformace from '../Components/TagPerformance.jsx';
 import ExamList from '../Components/TestList.jsx';
+import SummarySynopsisTable from '../Components/Table/SummarySynopsisTable.jsx';
 
 export default function TestResult() {
     return (
-        <ExamList />
+        <>
+            <Typography>
+                <Box textAlign="center" fontSize="h4.fontSize" m={1}>
+                    Test Summary
+                </Box>
+            </Typography>
+            <SummarySynopsisTable />
+            <ExamList />
+        </>
     )
 }

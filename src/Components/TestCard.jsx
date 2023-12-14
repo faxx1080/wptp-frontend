@@ -16,10 +16,7 @@ export default function ExamCard({ exam }) {
                     Date: {date.toLocaleDateString()}
                 </Typography>
                 <Typography variant="body1">
-                    Reading: {reading}
-                </Typography>
-                <Typography variant="body1">
-                    Writing: {writing}
+                    Reading&Writing: {reading + writing}
                 </Typography>
                 <Typography variant="body1">
                     Math: {math}

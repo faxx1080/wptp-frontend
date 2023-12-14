@@ -10,16 +10,9 @@ export default function OverviewTable({ data }) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography variant="h6">Reading Section</Typography>
+              <Typography variant="h6">Reading&Writing Section</Typography>
               <Typography variant="caption" style={{ fontSize: 'smaller' }}>
-                out of 400
-              </Typography>
-            </TableCell>
-
-            <TableCell>
-              <Typography variant="h6">Writing Section</Typography>
-              <Typography variant="caption" style={{ fontSize: 'smaller' }}>
-                out of 400
+                out of 800
               </Typography>
             </TableCell>
 
@@ -40,8 +33,7 @@ export default function OverviewTable({ data }) {
         </TableHead>
         <TableBody>
           <TableRow key={data.id}>
-            <TableCell>{data.reading}</TableCell>
-            <TableCell>{data.writing}</TableCell>
+            <TableCell>{data.reading + data.writing}</TableCell>
             <TableCell>{data.math}</TableCell>
             <TableCell>{total}</TableCell>
           </TableRow>
