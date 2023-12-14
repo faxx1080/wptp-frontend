@@ -7,6 +7,7 @@ import OverviewTable from '../Components/Table/OverviewTable.jsx';
 import { convertToBarChartArray, getMathData, getReadingAndWritingData, getMaxFrequency } from '../Utils';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 import { Container, Box, Typography } from '@mui/material';
+import TagPerformace from '../Components/TagPerformance.jsx';
 
 export default function Result() {
     const [value, setValue] = useState(0);
@@ -33,11 +34,8 @@ export default function Result() {
     const switchToTab = (index) => {
         switch (index) {
             case 0:
-                var barChartData = convertToBarChartArray(sampleResult.breakdown)
-                var maxFrequency = getMaxFrequency(barChartData)
-
                 return (
-                    <Box>
+                    <Container>
                         <Typography variant="h5" gutterBottom>
                             Overview
                         </Typography>
@@ -47,45 +45,33 @@ export default function Result() {
                             Question Details
                         </Typography>
                         <QuestionDetailTable data={sampleResult.breakdown} />
-                        <Typography variant="h5" gutterBottom>
-                            Performance by Tags
-                        </Typography>
-                        <BarChart data={barChartData} maxX={maxFrequency} />
-                    </Box>
+                        <TagPerformace data={sampleResult.breakdown}/>
+                    </Container>
                 );
             case 1:
                 const readingAndWritingData = getReadingAndWritingData(sampleResult.breakdown);
-                var barChartData = convertToBarChartArray(readingAndWritingData)
-                var maxFrequency = getMaxFrequency(barChartData)
 
                 return (
-                    <Box>
+                    <Container>
                         <Typography variant="h5" gutterBottom>
                             Reading & Writing Section Breakdown
                         </Typography>
                         <QuestionDetailTable data={readingAndWritingData} />
-                        <Typography variant="h5" gutterBottom>
-                            Performance by Tags
-                        </Typography>
-                        <BarChart data={barChartData} maxX={maxFrequency} />
-                    </Box>
+                        
+                        <TagPerformace data={readingAndWritingData}/>
+                    </Container>
                 );
             case 2:
-                var mathResult = getMathData(sampleResult.breakdown);
-                var barChartData = convertToBarChartArray(mathResult)
-                var maxFrequency = getMaxFrequency(barChartData)
+                const mathData = getMathData(sampleResult.breakdown);
 
                 return (
-                    <Box>
+                    <Container>
                         <Typography variant="h5" gutterBottom>
                             Math Section Breakdown
                         </Typography>
-                        <QuestionDetailTable data={mathResult} />
-                        <Typography variant="h5" gutterBottom>
-                            Performance by Tags
-                        </Typography>
-                        <BarChart data={barChartData} maxX={maxFrequency} />
-                    </Box>
+                        <QuestionDetailTable data={mathData} />
+                        <TagPerformace data={mathData}/>
+                    </Container>
                 );
             default:
                 return <OverviewTable />;

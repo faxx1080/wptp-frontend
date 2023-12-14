@@ -1,5 +1,5 @@
 function convertToBarChartArray(data) {
-    const resultArray = Object.values(data.reduce((acc, entry) => {
+    const barChartData = Object.values(data.reduce((acc, entry) => {
         const { tag, is_correct } = entry;
         acc[tag] = acc[tag] || { tag, frequency: 0, number_correct: 0 };
         acc[tag].frequency += 1;
@@ -9,11 +9,30 @@ function convertToBarChartArray(data) {
         return acc;
     }, {}));
 
-    return resultArray;
+    return barChartData;
 }
 
-function getMaxFrequency(data) {
-    return data.reduce((max, current) => {
+function getTagBarChartAnalysisData(tagBarChartData) {
+    const top3MostFrequent = sortBarChartDataByFrequency(tagBarChartData).map(entry => entry.tag).slice(0, 3);
+    const sortedTagByScorePercentage = sortBarChartDataByScorePercentage(tagBarChartData).map(entry => entry.tag)
+    const top3MostCorrect = sortedTagByScorePercentage.slice(-3);
+    const top3LeastCorrect = sortedTagByScorePercentage.slice(0, 3);
+
+    return { top3MostFrequent, top3MostCorrect, top3LeastCorrect };
+}
+
+function sortBarChartDataByScorePercentage(barChartData) {
+    return barChartData.sort((a, b) =>
+        a.number_correct / a.frequency - b.number_correct / b.frequency);
+}
+
+function sortBarChartDataByFrequency(barChartData) {
+    return barChartData.sort((a, b) =>
+        a.frequency - b.frequency);
+}
+
+function getMaxFrequency(barChartData) {
+    return barChartData.reduce((max, current) => {
         return current.frequency > max ? current.frequency : max;
     }, 0);
 }
@@ -32,4 +51,11 @@ function arrayFromZero(num) {
     return Array.from(Array(num).keys());
 }
 
-export { convertToBarChartArray, arrayFromZero, getMathData, getReadingAndWritingData, getMaxFrequency };
+export {
+    convertToBarChartArray,
+    arrayFromZero,
+    getMathData,
+    getReadingAndWritingData,
+    getMaxFrequency,
+    getTagBarChartAnalysisData,
+};

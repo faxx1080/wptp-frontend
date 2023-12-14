@@ -2,9 +2,8 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 export default function OverviewTable({ data }) {
-
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={4}>
       <Table>
         <TableHead>
           <TableRow>
@@ -14,18 +13,21 @@ export default function OverviewTable({ data }) {
                 out of 400
               </Typography>
             </TableCell>
+
             <TableCell>
               <Typography variant="h6">Writing Section</Typography>
               <Typography variant="caption" style={{ fontSize: 'smaller' }}>
                 out of 400
               </Typography>
             </TableCell>
+
             <TableCell>
               <Typography variant="h6">Math Section</Typography>
               <Typography variant="caption" style={{ fontSize: 'smaller' }}>
                 out of 800
               </Typography>
             </TableCell>
+
             <TableCell>
               <Typography variant="h6">Total</Typography>
               <Typography variant="caption" style={{ fontSize: 'smaller' }}>

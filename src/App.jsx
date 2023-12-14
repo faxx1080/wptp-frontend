@@ -17,6 +17,7 @@ function App() {
         <Route path="/ViewRandomQuestion" element={<ViewRandomQuestion />} />
         <Route path="/Result" element={<Result />} />
       </Routes>
+      <div style={{ height: '16px' }}></div>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
-export default function SimpleTable({ data }) {
+export default function QuestionDetailTable({ data }) {
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} elevation={4}>
             <Table>
                 <TableHead>
                     <TableRow>
