@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
-export default function SimpleTable({ data }){
+export default function SimpleTable({ data }) {
     return (
         <TableContainer component={Paper}>
             <Table>
@@ -14,14 +14,17 @@ export default function SimpleTable({ data }){
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row, index) => (
-                        <TableRow key={row.question_id}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>{row.tag}</TableCell>
-                            <TableCell>{row.correct_answer}</TableCell>
-                            <TableCell>{row.submitted_answer || "unanswered"}</TableCell>
-                        </TableRow>
-                    ))}
+                    {data.map((row, index) => {
+                        const color = row.correct_answer === row.submitted_answer ? 'green' : 'red';
+                        return (
+                            <TableRow key={row.question_id}>
+                                <TableCell style={{ color }}>{index + 1}</TableCell>
+                                <TableCell style={{ color }}>{row.tag}</TableCell>
+                                <TableCell style={{ color }}>{row.correct_answer}</TableCell>
+                                <TableCell style={{ color }}>{row.submitted_answer || "unanswered"}</TableCell>
+                            </TableRow>
+                        )
+                    })}
                 </TableBody>
             </Table>
         </TableContainer>
