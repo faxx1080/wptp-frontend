@@ -24,9 +24,7 @@ export default function TopNavbar() {
                         [LOGO] WPTP
                     </Typography>
                 </Link>
-                <Link to="/" style={logoLink}>
-                    <Button color="inherit">Home</Button>
-                </Link>
+                <Button component={Link} to="/" style={logoLink} color="inherit">Home</Button>
             </Toolbar>
         </AppBar>
     );

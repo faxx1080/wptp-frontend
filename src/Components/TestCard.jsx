@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, CardActions, Button } from '@mui/material';
+import { Card, CardContent, Typography, CardActions, Button, Container, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LinkButton from './LinkButton';
 
@@ -26,7 +26,7 @@ export default function ExamCard({ exam }) {
             </CardContent>
             <CardActions>
                 <LinkButton path={`/TestResult/${id}`} text="View Details" />
-            </CardActions>
+        </CardActions>
         </Card>
     );
 };
