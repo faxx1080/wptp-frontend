@@ -1,13 +1,12 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { CardActionArea } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 export default function GenericImageButton({ link, clickFunc, imgSrc, title, text, hasImage }) {
     return (
-        <Card component={Link} to={link} onClick={clickFunc} style={{ textDecoration:"none", width: '18rem', display: 'inline-block', margin: '20px', border: '1px solid', borderColor: 'primary.main' }} >
+        <Card component={Link} to={link} onClick={clickFunc} style={{ textDecoration: "none", width: '18rem', display: 'inline-block', margin: '20px', border: '1px solid', borderColor: 'primary.main' }} >
             {imgSrc &&
                 <CardMedia
                     component="img"
