@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Container, Grid } from '@mui/material';
+import { AppBar, Toolbar, Button, Container, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function BottomNavbar({ prevClickFunc, nextClickFunc, renderHomeBtn }) {
@@ -7,7 +7,7 @@ export default function BottomNavbar({ prevClickFunc, nextClickFunc, renderHomeB
     <AppBar position="fixed" color="default" style={{ top: 'auto', bottom: 0 }}>
       <Toolbar>
         <Container>
-          <Grid container style={{justifyContent:"flex-end"}}>
+          <Grid container style={{ justifyContent: "flex-end" }}>
             {prevClickFunc && (
               <Grid item>
                 <Button variant="contained" color="primary" onClick={prevClickFunc}>

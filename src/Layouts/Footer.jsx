@@ -1,7 +1,9 @@
+import Box from '@mui/material/Box';
 
+// TODO: Convert this to MUI
 export default function Footer() {
     return (
-        <div class="container">
+        <Box>
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <p class="col-md-4 mb-0 text-body-secondary">© 2023 Company, Inc</p>
 
@@ -17,6 +19,6 @@ export default function Footer() {
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
                 </ul>
             </footer>
-        </div>
+        </Box>
     );
 }

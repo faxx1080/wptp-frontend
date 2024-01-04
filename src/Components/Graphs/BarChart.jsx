@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { arrayFromZero } from '../../Utils';
+import { arrayFromZero } from '../../Utils/Utils';
 
 const BarChart = ({ data, maxX }) => {
     const svgRef = useRef();

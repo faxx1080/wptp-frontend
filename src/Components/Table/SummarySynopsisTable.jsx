@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import sampleTest from '../../data/test';
-import { getSuperScores } from '../../Utils';
+import { getSuperScores } from '../../Utils/Utils';
 
 export default function SummarySynopsisTable() {
     const { EBRWMax, mathMax } = getSuperScores(sampleTest);

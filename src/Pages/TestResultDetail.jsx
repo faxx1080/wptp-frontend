@@ -3,7 +3,7 @@ import sampleResult from '../data/result.js';
 import sampleTest from '../data/test.js';
 import QuestionDetailTable from '../Components/Table/QuestionDetailTable.jsx';
 import OverviewTable from '../Components/Table/OverviewTable.jsx';
-import { getMathData, getReadingAndWritingData } from '../Utils.js';
+import { getMathData, getReadingAndWritingData } from '../Utils/Utils.js';
 import CenteredTabs from '../Components/CenterTabs.jsx';
 import { Container, Box, Typography } from '@mui/material';
 import TagPerformace from '../Components/TagPerformance.jsx';

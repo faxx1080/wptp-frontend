@@ -6,14 +6,19 @@ import SAT from './Pages/SAT'
 import ViewRandomQuestion from './Pages/ViewRandomQuestion'
 import TestResult from './Pages/TestResult'
 import TestResultDetail from './Pages/TestResultDetail'
+import Login from './Pages/Login'
+import Welcome from './Pages/Welcome'
+import { Toolbar } from '@mui/material';
 
 function App() {
   return (
     <div className="App">
       <TopNavbar />
-      <div style={{ height: '64px' }}></div>
+      <Toolbar /> {/* This is to push the content down so that it is not hidden by the navbar */}
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Welcome" element={<Welcome />} />
         <Route path="/SAT" element={<SAT />} />
         <Route path="/ViewRandomQuestion" element={<ViewRandomQuestion />} />
         <Route path="/TestResult/:id" element={<TestResultDetail />} />

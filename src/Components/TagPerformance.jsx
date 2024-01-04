@@ -1,4 +1,4 @@
-import { getTagBarChartAnalysisData, convertToBarChartArray, getMaxFrequency } from "../Utils"
+import { getTagBarChartAnalysisData, convertToBarChartArray, getMaxFrequency } from "../Utils/Utils"
 import { Box, Paper, Typography, Grid } from "@mui/material"
 import BarChart from "./Graphs/BarChart"
 
