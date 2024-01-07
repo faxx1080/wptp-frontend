@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Box, Typography } from "@mui/material";
 import ExamList from "../Components/TestList.jsx";
 import SummarySynopsisTable from "../Components/Table/SummarySynopsisTable.jsx";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-export default function TestResult() {
+function TestResult() {
   return (
     <>
       <Box textAlign="center" m={1}>
@@ -15,3 +16,5 @@ export default function TestResult() {
     </>
   );
 }
+
+export default withAuthenticator(TestResult);

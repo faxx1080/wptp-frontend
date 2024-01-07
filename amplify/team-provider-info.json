@@ -10,6 +10,11 @@
       "StackName": "amplify-wptpui-dev-200009",
       "StackId": "arn:aws:cloudformation:us-east-1:135218218645:stack/amplify-wptpui-dev-200009/1db67df0-acf8-11ee-891b-124293b72a17",
       "AmplifyAppId": "doxkq7nwmydia"
+    },
+    "categories": {
+      "auth": {
+        "wptpui90025c74": {}
+      }
     }
   }
 }

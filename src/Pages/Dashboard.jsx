@@ -1,7 +1,8 @@
 import GenericImageButton from "../Components/GenericImageButton";
 import { Container } from "@mui/material";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-export default function Dashboard() {
+function Dashboard() {
   const imgSrc =
     "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
 
@@ -39,3 +40,5 @@ export default function Dashboard() {
     </>
   );
 }
+
+export default withAuthenticator(Dashboard);

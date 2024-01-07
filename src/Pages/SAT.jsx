@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import BottomNavbar from "../Layouts/BottomNavbar";
 import Question from "../Components/Question";
-// import SectionHeader from '../Components/SectionHeader';
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-export default function SAT() {
+function SAT() {
   const [count, setCount] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [questionModel, setQuestionModel] = useState([]);
@@ -84,3 +84,5 @@ export default function SAT() {
     );
   }
 }
+
+export default withAuthenticator(SAT);
