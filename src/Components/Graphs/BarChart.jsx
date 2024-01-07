@@ -112,7 +112,7 @@ const BarChart = ({ data, maxX }) => {
       .text((d) => d);
 
     const legendPadding = 3;
-    const legendRectWidth = legendRectSize + legendSpacing + 65;
+    const legendRectWidth = legendRectSize + legendSpacing + 70;
     const legendRectHeight =
       legendItems.length * (legendRectSize + legendSpacing) + legendSpacing;
     const legendStrokeWidth = 2; // Set the border width
