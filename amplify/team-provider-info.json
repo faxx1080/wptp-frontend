@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wptpui-dev-200009-authRole",
+      "UnauthRoleArn": "arn:aws:iam::135218218645:role/amplify-wptpui-dev-200009-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::135218218645:role/amplify-wptpui-dev-200009-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-wptpui-dev-200009-deployment",
+      "UnauthRoleName": "amplify-wptpui-dev-200009-unauthRole",
+      "StackName": "amplify-wptpui-dev-200009",
+      "StackId": "arn:aws:cloudformation:us-east-1:135218218645:stack/amplify-wptpui-dev-200009/1db67df0-acf8-11ee-891b-124293b72a17",
+      "AmplifyAppId": "doxkq7nwmydia"
+    }
+  }
+}
