@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Box, Typography } from "@mui/material";
 import ExamList from "../Components/TestList.jsx";
 import SummarySynopsisTable from "../Components/Table/SummarySynopsisTable.jsx";
-import { withAuthenticator } from "@aws-amplify/ui-react";
 
 function TestResult() {
   return (
@@ -17,4 +16,4 @@ function TestResult() {
   );
 }
 
-export default withAuthenticator(TestResult);
+export default TestResult;

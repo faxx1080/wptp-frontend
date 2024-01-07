@@ -1,6 +1,5 @@
 import GenericImageButton from "../Components/GenericImageButton";
 import { Container } from "@mui/material";
-import { withAuthenticator } from "@aws-amplify/ui-react";
 
 function Dashboard() {
   const imgSrc =
@@ -41,4 +40,4 @@ function Dashboard() {
   );
 }
 
-export default withAuthenticator(Dashboard);
+export default Dashboard;

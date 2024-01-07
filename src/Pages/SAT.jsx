@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import BottomNavbar from "../Layouts/BottomNavbar";
 import Question from "../Components/Question";
-import { withAuthenticator } from "@aws-amplify/ui-react";
 
 function SAT() {
   const [count, setCount] = useState(0);
@@ -85,4 +84,4 @@ function SAT() {
   }
 }
 
-export default withAuthenticator(SAT);
+export default SAT;

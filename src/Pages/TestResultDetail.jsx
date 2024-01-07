@@ -9,7 +9,6 @@ import { Container, Box, Typography } from "@mui/material";
 import TagPerformace from "../Components/TagPerformance.jsx";
 import { useParams } from "react-router-dom";
 import LinkButton from "../Components/LinkButton.jsx";
-import { withAuthenticator } from "@aws-amplify/ui-react";
 
 function TestResultDetail() {
   const { id } = useParams();
@@ -92,4 +91,4 @@ function TestResultDetail() {
   );
 }
 
-export default withAuthenticator(TestResultDetail);
+export default TestResultDetail;
