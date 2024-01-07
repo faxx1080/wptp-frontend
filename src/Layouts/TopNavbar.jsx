@@ -24,16 +24,31 @@ export default function TopNavbar() {
           </Grid>
 
           {/* Right Side */}
-          <Grid item xs={6} display="flex" justifyContent="flex-end" >
-            <Button
-              component={Link}
-              to="/"
-              onClick={signOut}
-              style={logoLink}
-              color="inherit"
-            >
-              SignOut
-            </Button>
+          <Grid item xs={6} display="flex" justifyContent="flex-end">
+            {user ? (
+              // User is authenticated, show Sign Out button
+              <Button
+                component={Link}
+                to="/"
+                onClick={signOut}
+                style={logoLink}
+                color="inherit"
+              >
+                Sign Out
+              </Button>
+            ) : (
+              // User is not authenticated, show Sign In and Sign Up buttons
+              <>
+                <Button
+                  component={Link}
+                  to="/dashboard" // Replace with your actual sign-in route
+                  style={logoLink}
+                  color="inherit"
+                >
+                  Sign In
+                </Button>
+              </>
+            )}
           </Grid>
         </Grid>
       </Toolbar>
