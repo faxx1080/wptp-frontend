@@ -6,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { homeRoute, dashboardRoute } from "../data/constants";
 
 export default function TopNavbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,7 +71,7 @@ export default function TopNavbar() {
               </Menu>
               <Button
                 component={Link}
-                to="/"
+                to={homeRoute}
                 onClick={signOut}
                 style={logoLink}
                 color="inherit"
@@ -83,7 +84,7 @@ export default function TopNavbar() {
             <>
               <Button
                 component={Link}
-                to="/dashboard"
+                to={dashboardRoute}
                 style={logoLink}
                 color="inherit"
               >

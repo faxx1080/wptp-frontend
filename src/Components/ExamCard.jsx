@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-} from "@mui/material";
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import LinkButton from "./LinkButton";
+import { testResultRoute } from "../data/constants";
 
 export default function ExamCard({ exam }) {
   const { id, date, reading, writing, math } = exam;
@@ -25,7 +21,7 @@ export default function ExamCard({ exam }) {
         <Typography variant="body1">Math: {math}</Typography>
       </CardContent>
       <CardActions>
-        <LinkButton path={`/TestResult/${id}`} text="View Details" />
+        <LinkButton path={`${testResultRoute}/${id}`} text="View Details" />
       </CardActions>
     </Card>
   );

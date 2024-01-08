@@ -1,6 +1,6 @@
 import { Typography, Button, Box, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { dashboardRoute, signupRoute } from "../data/constants";
 export default function Home() {
   return (
     <Box
@@ -37,9 +37,9 @@ export default function Home() {
             src="src/assets/images/exampleMCQ.png"
             alt="Example Multiple Choice Question"
             style={{
-              width: "100%", // Adjust the percentage based on your design
-              maxWidth: "500px", // Optional: Set a maximum width if needed
-              height: "auto", // Maintain aspect ratio
+              width: "100%",
+              maxWidth: "500px",
+              height: "auto",
             }}
           />
         </Grid>
@@ -63,7 +63,7 @@ export default function Home() {
       >
         <Button
           component={Link}
-          to="/dashboard"
+          to={dashboardRoute}
           sx={{
             bgcolor: "primary.main",
             color: "primary.contrastText",
@@ -76,7 +76,7 @@ export default function Home() {
         </Button>
         <Button
           component={Link}
-          to="/dashboard"
+          to={signupRoute}
           sx={{
             bgcolor: "success.main",
             color: "primary.contrastText",

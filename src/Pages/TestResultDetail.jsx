@@ -9,6 +9,7 @@ import { Container, Box, Typography } from "@mui/material";
 import TagPerformace from "../Components/TagPerformance.jsx";
 import { useParams } from "react-router-dom";
 import LinkButton from "../Components/LinkButton.jsx";
+import { testResultRoute } from "../data/constants.js";
 
 function TestResultDetail() {
   const { id } = useParams();
@@ -84,7 +85,7 @@ function TestResultDetail() {
 
   return (
     <>
-      <LinkButton path="/TestResult" text="Back" />
+      <LinkButton path={testResultRoute} text="Back" />
       <CenteredTabs value={value} handleChange={handleChange} />
       {switchToTab(value)}
     </>

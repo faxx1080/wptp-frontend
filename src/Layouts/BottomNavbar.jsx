@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Button, Container, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { homeRoute } from "../data/constants";
 export default function BottomNavbar({
   prevClickFunc,
   nextClickFunc,
@@ -27,7 +27,7 @@ export default function BottomNavbar({
               <Grid item>
                 <Button
                   component={Link}
-                  to="/"
+                  to={homeRoute}
                   onClick={nextClickFunc}
                   variant="contained"
                   color="primary"

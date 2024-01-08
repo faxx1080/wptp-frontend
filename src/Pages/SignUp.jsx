@@ -1,14 +1,7 @@
-import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Navigate } from "react-router-dom";
-
+import { dashboardRoute } from "../data/constants";
 function SignUp() {
-  const { authStatus } = useAuthenticator((context) => [context.authStatus]);
-
-  if (authStatus !== "authenticated") {
-    return <Navigate to="/" />;
-  }
-
-  return null;
+  return <Navigate to={dashboardRoute} />;
 }
 
 export default SignUp;

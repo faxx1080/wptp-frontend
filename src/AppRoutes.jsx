@@ -7,13 +7,22 @@ import TestResult from "./Pages/TestResult";
 import TestResultDetail from "./Pages/TestResultDetail";
 import Dashboard from "./Pages/Dashboard";
 import AuthWrapper from "./Components/Wrapper/AuthWrapper";
+import SignUp from "./Pages/SignUp";
+
+import {
+  signupRoute,
+  dashboardRoute,
+  SATRoute,
+  ViewRandomQuestionRoute,
+  testResultRoute,
+} from "./data/constants";
 
 function AppRoutes() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route
-        path="/Dashboard"
+        path={dashboardRoute}
         element={
           <AuthWrapper>
             <Dashboard />
@@ -21,7 +30,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/SAT"
+        path={SATRoute}
         element={
           <AuthWrapper>
             <SAT />
@@ -29,7 +38,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/ViewRandomQuestion"
+        path={ViewRandomQuestionRoute}
         element={
           <AuthWrapper>
             <ViewRandomQuestion />
@@ -37,7 +46,7 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/TestResult/:id"
+        path={`${testResultRoute}/:id`}
         element={
           <AuthWrapper>
             <TestResultDetail />
@@ -45,10 +54,18 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/TestResult"
+        path={testResultRoute}
         element={
           <AuthWrapper>
             <TestResult />
+          </AuthWrapper>
+        }
+      />
+      <Route
+        path={signupRoute}
+        element={
+          <AuthWrapper initialState="signUp">
+            <SignUp />
           </AuthWrapper>
         }
       />
