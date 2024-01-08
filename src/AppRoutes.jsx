@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import SAT from "./Pages/SAT";
 import ViewRandomQuestion from "./Pages/ViewRandomQuestion";

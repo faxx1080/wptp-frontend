@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid } from "@mui/material";
-import TestCard from "./TestCard";
+import TestCard from "./ExamCard";
 import sampleTest from "../data/test";
 
 export default function ExamList() {

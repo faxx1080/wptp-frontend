@@ -1,9 +1,9 @@
 import React from "react";
 import { Authenticator } from "@aws-amplify/ui-react";
 
-function AuthWrapper({ children }) {
+function AuthWrapper({ initalState, children }) {
   return (
-    <Authenticator socialProviders={["google"]}>
+    <Authenticator initialState={initalState} socialProviders={["google"]}>
       {({ signOut, user }) => children}
     </Authenticator>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Box, Typography } from "@mui/material";
-import ExamList from "../Components/TestList.jsx";
+import ExamList from "../Components/ExamList.jsx";
 import SummarySynopsisTable from "../Components/Table/SummarySynopsisTable.jsx";
 
 function TestResult() {

@@ -1,10 +1,93 @@
-import LinkButton from "../Components/LinkButton";
+import { Typography, Button, Box, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <>
-      <h2>The home page</h2>
-      <LinkButton path="/Dashboard" text="Dashboard" />
-    </>
+    <Box
+      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <Box sx={{ textAlign: "center" }}>
+        <Typography variant="h4">West Palm Test Prep</Typography>
+        <Typography variant="h5" sx={{ fontStyle: "italic" }}>
+          Practice site
+        </Typography>
+      </Box>
+
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" align="center">
+            Want to try out a practice exam Just like the real thing
+          </Typography>
+          <br />
+          <Typography variant="body1" align="center">
+            ... from the comfort of your home?
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src="src/assets/images/exampleMCQ.png"
+            alt="Example Multiple Choice Question"
+            style={{
+              width: "100%", // Adjust the percentage based on your design
+              maxWidth: "500px", // Optional: Set a maximum width if needed
+              height: "auto", // Maintain aspect ratio
+            }}
+          />
+        </Grid>
+      </Grid>
+
+      <Box>
+        <Typography>This site can do that!</Typography>
+        <ul>
+          <li>Practice reading, geometry, math questions</li>
+          <li>Practice full length exam</li>
+          <li>Scorecards at the end of an exam</li>
+          <li>Showing you what to focus on</li>
+          <li>Specialized questions geared to your specific strengths</li>
+          <li>and weaknesses</li>
+          <li>And more!</li>
+        </ul>
+      </Box>
+
+      <Box
+        sx={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}
+      >
+        <Button
+          component={Link}
+          to="/dashboard"
+          sx={{
+            bgcolor: "primary.main",
+            color: "primary.contrastText",
+            "&:hover": {
+              bgcolor: "primary.dark", // Change to the color you want on hover
+            },
+          }}
+        >
+          Login
+        </Button>
+        <Button
+          component={Link}
+          to="/dashboard"
+          sx={{
+            bgcolor: "success.main",
+            color: "primary.contrastText",
+            "&:hover": {
+              bgcolor: "success.dark", // Change to the color you want on hover
+            },
+          }}
+        >
+          Sign up
+        </Button>
+      </Box>
+    </Box>
   );
 }
