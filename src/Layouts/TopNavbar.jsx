@@ -80,7 +80,7 @@ export default function TopNavbar() {
               </Button>
             </>
           ) : (
-            // User is not authenticated, show Sign In and Sign Up buttons
+            // User is not authenticated, show Login button
             <>
               <Button
                 component={Link}

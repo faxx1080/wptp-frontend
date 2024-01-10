@@ -1,6 +1,8 @@
 import { Typography, Button, Box, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { dashboardRoute, signupRoute } from "../data/constants";
+import exampleMCQImage from "../assets/images/exampleMCQ.png";
+
 export default function Home() {
   return (
     <Box
@@ -34,7 +36,7 @@ export default function Home() {
           }}
         >
           <img
-            src="./public/images/exampleMCQ.png"
+            src={exampleMCQImage}
             alt="Example Multiple Choice Question"
             style={{
               width: "100%",
@@ -68,7 +70,7 @@ export default function Home() {
             bgcolor: "primary.main",
             color: "primary.contrastText",
             "&:hover": {
-              bgcolor: "primary.dark", // Change to the color you want on hover
+              bgcolor: "primary.dark",
             },
           }}
         >
@@ -81,7 +83,7 @@ export default function Home() {
             bgcolor: "success.main",
             color: "primary.contrastText",
             "&:hover": {
-              bgcolor: "success.dark", // Change to the color you want on hover
+              bgcolor: "success.dark",
             },
           }}
         >

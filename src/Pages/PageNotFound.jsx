@@ -5,7 +5,7 @@ function PageNotFound() {
   return (
     <>
       <Typography variant="h4">
-        Page Not Found. Go back to the <Link to={homeRoute}>Home page</Link>
+        Page Not Found. Please go back to the <Link to={homeRoute}>Home page</Link>
       </Typography>
     </>
   );

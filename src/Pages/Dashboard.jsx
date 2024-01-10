@@ -23,7 +23,6 @@ function Dashboard() {
         />
       </Container>
 
-      {/* <br /> */}
       <h2>Practice and Prepare</h2>
       <Container style={{ margin: "0px" }}>
         <GenericImageButton
