@@ -34,7 +34,7 @@ export default function Home() {
           }}
         >
           <img
-            src="./src/images/exampleMCQ.png"
+            src="./public/images/exampleMCQ.png"
             alt="Example Multiple Choice Question"
             style={{
               width: "100%",

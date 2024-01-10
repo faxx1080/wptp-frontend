@@ -8,6 +8,7 @@ import TestResultDetail from "./Pages/TestResultDetail";
 import Dashboard from "./Pages/Dashboard";
 import AuthWrapper from "./Components/Wrapper/AuthWrapper";
 import SignUp from "./Pages/SignUp";
+import PageNotFound from "./Pages/PageNotFound";
 
 import {
   signupRoute,
@@ -69,6 +70,7 @@ function AppRoutes() {
           </AuthWrapper>
         }
       />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
