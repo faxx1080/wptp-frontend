@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Authenticator } from "@aws-amplify/ui-react";
+import { MathJaxContext } from "better-react-mathjax";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Authenticator.Provider>
-        <App />
+        <MathJaxContext>
+          <App />
+        </MathJaxContext>
       </Authenticator.Provider>
     </BrowserRouter>
   </React.StrictMode>

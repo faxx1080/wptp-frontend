@@ -2,12 +2,15 @@ import { Typography, Button, Box, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { dashboardRoute, signupRoute } from "../data/constants";
 import exampleMCQImage from "../assets/images/exampleMCQ.png";
+import { MathJax } from "better-react-mathjax";
 
 export default function Home() {
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
+
+
       <Box sx={{ textAlign: "center" }}>
         <Typography variant="h4">West Palm Test Prep</Typography>
         <Typography variant="h5" sx={{ fontStyle: "italic" }}>
