@@ -12,14 +12,16 @@ const sampleQuestions = [
       "questiontype": "Multiple choice",
       "categoriesalgebra": "Algebraic Manipulation",
       "difficulty": 2,
-      "equations": "a/3b = 3/7",
+      // "equations": "a/3b = 3/7",
       "choiceatext": "7/9",
       "choicectext": "3/21",
       "choicedtext": "7/3",
       "id": 4,
       "imagesolutionlink": question1solution,
       // "imagesolutionlink": "https://drive.google.com/open?id=1mHBiSbBi__TgvxH11Ejv6q_pYHYPOwHH",
-      "questiontext": "Given the equation below, what is b/a?"
+      "questiontext": `Given the equation below, what is $b/a$?
+      $$\\frac{a}{3b} = \\frac{3}{7}$$
+      `
    },
    {
       "choicebtext": "1",
@@ -29,14 +31,14 @@ const sampleQuestions = [
       "questiontype": "Multiple choice",
       "categoriesalgebra": "Solving for a Variable, Two-Step Equations",
       "difficulty": 1,
-      "equations": "x + 5 = -2x + 7",
       "choiceatext": "-4",
       "choicectext": "2/3",
       "choicedtext": "-2/3",
       "id": 5,
       "imagesolutionlink": question2solution,
       // "imagesolutionlink": "https://drive.google.com/open?id=1Gb7I-8b6HTq_DHjy6JVTXuGAFa6MWFo-",
-      "questiontext": "Based on the equation below, find x:"
+      "questiontext": `Based on the equation below, find x:
+      $$x + 5 = -2x + 7$$`
    },
    {
       "choicebtext": "(0,3)",
@@ -54,7 +56,7 @@ const sampleQuestions = [
       "id": 6,
       "imagesolutionlink": question3solution,
       // "imagesolutionlink": "https://drive.google.com/open?id=1nmW2U4RNHRvlGfKxCTa-_0jtAZiBBBww",
-      "questiontext": "What is the y-intercept of the following graph?"
+      "questiontext": `What is the y-intercept of the following graph?`
    }
 ]
 

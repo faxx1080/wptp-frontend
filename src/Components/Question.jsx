@@ -20,7 +20,7 @@ export default function Question({
   };
   const answerChoices = ["A", "B", "C", "D", "E"];
   console.log(questionData.equations);
-
+  
   return (
     <Container maxWidth="sm" style={{ marginTop: "50px" }}>
       <Paper style={{ padding: "20px" }} elevation={3}>
@@ -29,13 +29,7 @@ export default function Question({
         </Typography>
         {/* <div>{"This is meant to be a context for the question. But this is not from the text API yet."}</div> */}
         <br />
-        {/* <MathJax>{String.raw`\( ${questionData.questiontext} \)`}</MathJax>} */}
-        <div>{questionData.questiontext}</div>
-        {<MathJax>{String.raw`\( \text{${questionData.questiontext}} \frac{1}{2} \)`}</MathJax>}
-
-        {questionData.equations && (
-          <MathJax>{String.raw`\( ${questionData.equations} \)`}</MathJax>
-        )}
+        <MathJax>{`${questionData.questiontext}`}</MathJax>
         {questionData.imagelink && <img src={questionData.imagelink} />}
         <RadioGroup value={selectedOption} onChange={handleOptionChange}>
           {answerChoices.map(
@@ -45,7 +39,7 @@ export default function Question({
                   key={choice}
                   value={choice}
                   control={<Radio color="default" />}
-                  label={questionData[`choice${choice.toLowerCase()}text`]}
+                  label={<MathJax>{questionData[`choice${choice.toLowerCase()}text`]}</MathJax>}
                 />
               )
           )}
