@@ -9,6 +9,14 @@ const BarChart = ({ data, maxX }) => {
   const initialHeight = 80;
   const height = 35 * data.length - margin.top - margin.bottom + initialHeight;
 
+  const updateDimensions = () => {
+    const containerWidth = width + margin.left + margin.right;
+    const updatedWidth = containerWidth - margin.left - margin.right;
+
+    setWidth(updatedWidth);
+    setHeight(height);
+  };
+
   useEffect(() => {
     // D3 code to create a horizontal bar chart
     const svg = d3.select(svgRef.current);
@@ -125,13 +133,22 @@ const BarChart = ({ data, maxX }) => {
       .attr("fill", "none")
       .attr("stroke", "black")
       .attr("stroke-width", legendStrokeWidth);
+
+    window.addEventListener("resize", updateDimensions);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
   }, [data, maxX]);
 
   return (
     <svg
       ref={svgRef}
-      width={width + margin.left + margin.right}
-      height={height + margin.top + margin.bottom}
+      viewBox={`0 0 ${width + margin.left + margin.right} ${
+        height + margin.top + margin.bottom
+      }`}
+      preserveAspectRatio="xMidYMid meet"
     ></svg>
   );
 };
