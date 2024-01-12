@@ -28,7 +28,7 @@ export default function Question({
           Question {number}:
         </Typography>
         {/* <div>{"This is meant to be a context for the question. But this is not from the text API yet."}</div> */}
-        <MathJax>{`${questionData.questiontext}`}</MathJax>
+        <MathJax inline dynamic>{`${questionData.questiontext}`}</MathJax>
         {questionData.imagelink && (
           <img
             src={questionData.imagelink}
@@ -44,7 +44,7 @@ export default function Question({
                   value={choice}
                   control={<Radio color="default" />}
                   label={
-                    <MathJax>
+                    <MathJax inline dynamic>
                       {questionData[`choice${choice.toLowerCase()}text`]}
                     </MathJax>
                   }
