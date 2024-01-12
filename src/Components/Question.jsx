@@ -20,7 +20,7 @@ export default function Question({
   };
   const answerChoices = ["A", "B", "C", "D", "E"];
   console.log(questionData.equations);
-  
+
   return (
     <Container maxWidth="sm" style={{ marginTop: "50px" }}>
       <Paper style={{ padding: "20px" }} elevation={3}>
@@ -28,9 +28,13 @@ export default function Question({
           Question {number}:
         </Typography>
         {/* <div>{"This is meant to be a context for the question. But this is not from the text API yet."}</div> */}
-        <br />
         <MathJax>{`${questionData.questiontext}`}</MathJax>
-        {questionData.imagelink && <img src={questionData.imagelink} />}
+        {questionData.imagelink && (
+          <img
+            src={questionData.imagelink}
+            style={{ width: "100%", maxWidth: "500px" }}
+          />
+        )}
         <RadioGroup value={selectedOption} onChange={handleOptionChange}>
           {answerChoices.map(
             (choice) =>
@@ -39,7 +43,11 @@ export default function Question({
                   key={choice}
                   value={choice}
                   control={<Radio color="default" />}
-                  label={<MathJax>{questionData[`choice${choice.toLowerCase()}text`]}</MathJax>}
+                  label={
+                    <MathJax>
+                      {questionData[`choice${choice.toLowerCase()}text`]}
+                    </MathJax>
+                  }
                 />
               )
           )}
@@ -48,5 +56,3 @@ export default function Question({
     </Container>
   );
 }
-
-// {questionData.equations && <img src={questionData.equations} />}

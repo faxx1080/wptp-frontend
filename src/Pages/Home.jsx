@@ -9,8 +9,6 @@ export default function Home() {
     <Box
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-
-
       <Box sx={{ textAlign: "center" }}>
         <Typography variant="h4">West Palm Test Prep</Typography>
         <Typography variant="h5" sx={{ fontStyle: "italic" }}>
