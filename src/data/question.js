@@ -20,8 +20,7 @@ const sampleQuestions = [
       "imagesolutionlink": question1solution,
       // "imagesolutionlink": "https://drive.google.com/open?id=1mHBiSbBi__TgvxH11Ejv6q_pYHYPOwHH",
       "questiontext": `Given the equation below, what is $b/a$?
-      $$\\frac{a}{3b} = \\frac{3}{7}$$
-      `
+      $$\\frac{a}{3b} = \\frac{3}{7}$$ `
    },
    {
       "choicebtext": "1",
@@ -38,7 +37,7 @@ const sampleQuestions = [
       "imagesolutionlink": question2solution,
       // "imagesolutionlink": "https://drive.google.com/open?id=1Gb7I-8b6HTq_DHjy6JVTXuGAFa6MWFo-",
       "questiontext": `Based on the equation below, find x:
-      $$x + 5 = -2x + 7$$`
+      $$x + 5 = -2x + 7$$ `
    },
    {
       "choicebtext": "(0,3)",

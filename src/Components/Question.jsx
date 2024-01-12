@@ -32,7 +32,7 @@ export default function Question({
         {questionData.imagelink && (
           <img
             src={questionData.imagelink}
-            style={{ width: "100%", maxWidth: "500px" }}
+            style={{ width: "100%", maxWidth: "400px" }}
           />
         )}
         <RadioGroup value={selectedOption} onChange={handleOptionChange}>
